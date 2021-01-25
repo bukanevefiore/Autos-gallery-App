@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.AracBilgileriActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="Araç Bilgilerini giriniz"
+        android:layout_margin="50dp">
+
+    </TextView>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Araç markasını giriniz"
+        android:id="@+id/markaBilgiEditText"
+        android:layout_gravity="center"></EditText>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Araç serisini giriniz"
+        android:id="@+id/seriBilgiEditText"
+        android:layout_gravity="center"></EditText>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Araç modelini giriniz"
+        android:id="@+id/modelBilgiEditText"
+        android:layout_gravity="center"></EditText>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Araç yılını giriniz"
+        android:id="@+id/yilBilgiEditText"
+        android:layout_gravity="center"></EditText>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Araç KM'sini giriniz"
+        android:id="@+id/kmBilgiEditText"
+        android:layout_gravity="center"></EditText>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/aracBilgisiButon"
+        android:text="İLERİ"></Button>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/aracBilgisiButonGeri"
+        android:text="GERİ"></Button>
+
+</LinearLayout>

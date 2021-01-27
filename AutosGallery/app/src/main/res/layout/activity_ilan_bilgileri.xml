@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activity.IlanBilgileriActivity">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="İlan Bilgilerini giriniz"
+        android:layout_margin="50dp">
+
+    </TextView>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="İlan başlığını giriniz"
+        android:id="@+id/ilanBaslikEditText"
+        android:layout_gravity="center"></EditText>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="İlan açıklamasını giriniz"
+        android:id="@+id/ilanAciklamaEditText"
+        android:layout_gravity="center"></EditText>
+    <EditText
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:hint="Fiyat giriniz"
+        android:id="@+id/ilanFiyatEditText"
+        android:layout_gravity="center"></EditText>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/ilanBilgisiButon"
+        android:text="İLERİ"></Button>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/ilanBilgisiButonGeri"
+        android:text="GERİ"></Button>
+
+</LinearLayout>

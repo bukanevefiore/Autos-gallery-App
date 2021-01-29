@@ -2,14 +2,19 @@ package com.example.autosgallery.RestApi;
 
 import com.example.autosgallery.Models.DogrulamaPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
+import com.example.autosgallery.Models.IlanlarimPojo;
 import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 
 public interface RestApi {
@@ -37,5 +42,9 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/autogallery/ilanresimekle.php")
     Call<ResimEklePojo> resimYukle(@Field("uye_id") String uye_id, @Field("ilan_id") String ilan_id, @Field("resim") String base64StringResim);
+
+
+    @GET("/autogallery/ilanlarim.php")
+    Call<List<IlanlarimPojo>> ilanlarim(@Query("uyeid") String uyeid);
 
 }

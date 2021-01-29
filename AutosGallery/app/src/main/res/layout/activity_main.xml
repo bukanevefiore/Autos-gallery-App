@@ -88,6 +88,7 @@
             android:drawableLeft="@drawable/ic_menu_send"
             android:background="@drawable/buton_back"
             android:text="İLANLARIM"
+            android:id="@+id/ilanlarimMenuButon"
             android:textSize="15dp"
             android:textColor="#000"
             android:layout_gravity="center"

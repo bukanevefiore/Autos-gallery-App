@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/pressed2"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ne yapmak istyorsunuz ?"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:background="@drawable/buton_back"
+        android:layout_height="wrap_content"
+        android:text="SİL"
+        android:textSize="15dp"
+        android:id="@+id/buton"></Button>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:text="İPTAL ET"
+            android:textSize="15dp"
+            android:background="@drawable/buton_back"
+            android:layout_height="wrap_content"
+            android:id="@+id/butonCik"></Button>
+
+</LinearLayout>
+</LinearLayout>

@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="20dp"
+    android:id="@+id/ilanLinearLayout"
     android:background="@drawable/listviewler"
     app:layout_constraintCircleRadius="40dp"
     android:layout_margin="20dp"

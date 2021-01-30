@@ -2,9 +2,12 @@ package com.example.autosgallery.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.autosgallery.Adapters.IlanlarimAdapter;
 import com.example.autosgallery.Models.IlanlarimPojo;
@@ -41,6 +44,14 @@ public class IlanlarimActivity extends AppCompatActivity {
     }
     public void ilanlarimiGoruntule(){
 
+        // progress diyolog
+        final ProgressDialog progressDialog=new ProgressDialog(this);
+        progressDialog.setTitle("İlanlarım");
+        progressDialog.setMessage("İlanlarınız Yükleniyor, Lütfen Bekleyin..");
+        progressDialog.setCancelable(false); // iptal edilebilirliği kapatıyor işlem bitince kendi kapanıyor
+        progressDialog.show();
+
+
         ilanlarimPojos=new ArrayList<>();
         Call<List<IlanlarimPojo>> request= ManagerAll.getInstance().ilanlarim(uye_id);
         request.enqueue(new Callback<List<IlanlarimPojo>>() {
@@ -50,10 +61,13 @@ public class IlanlarimActivity extends AppCompatActivity {
                 if(response.isSuccessful()) {
                     // list olarak dönmesi için respapi de ve managerall da ilanlarımpojoyu list yaptık
                     ilanlarimPojos = response.body();
-                    ilanlarimAdapter=new IlanlarimAdapter(ilanlarimPojos,getApplicationContext());
+                    ilanlarimAdapter=new IlanlarimAdapter(ilanlarimPojos,getApplicationContext(),IlanlarimActivity.this);
                     listView.setAdapter(ilanlarimAdapter);
+                    // listenin 0. item ı üzerinde sayi değişkenine ulaşarak kişiye ait ilan sayısını alıyoruz
+                    Toast.makeText(getApplicationContext(),response.body().get(0).getSayi()+"tane ilanınız bulunmaktadır.",Toast.LENGTH_LONG).show();
 
-                }else{
+                    // progress dialogu işlem sonunda kapatma
+                    progressDialog.cancel();
 
                 }
             }

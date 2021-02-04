@@ -25,8 +25,7 @@ public class IlanlarimAdapter extends BaseAdapter {
     // ilan silme işlemi alertdialogu için değişkenler
     Activity activity;
     String uye_id,ilan_id;
-    LinearLayout linearLayout;
-    AlertDialogClass alertDialogClass;
+
 
     public IlanlarimAdapter(List<IlanlarimPojo> list, Context context,Activity activity) {
         this.list = list;
@@ -60,19 +59,10 @@ public class IlanlarimAdapter extends BaseAdapter {
         resim=convertView.findViewById(R.id.ilanlarimIlanResim);
         baslik=convertView.findViewById(R.id.ilanlarimIlanBaslik);
         fiyat=convertView.findViewById(R.id.ilanlarimIlanFiyat);
+
         // ilan silme alertdialog için tanimlamalr
         ilan_id=list.get(position).getIlanid();
         uye_id=list.get(position).getUyeid();
-        linearLayout=convertView.findViewById(R.id.ilanLinearLayout);
-
-        // linear layout a tıklandığında ilan silme için alertdialog çıkması
-        linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                alertDialogClass=new AlertDialogClass(); // alertdialog tanimlama
-                alertDialogClass.ilanlarimAlertDialog(activity,ilan_id); // alertdialog acma
-            }
-        });
 
         // baslik ve fiyat için set etme
         baslik.setText(list.get(position).getBaslik());

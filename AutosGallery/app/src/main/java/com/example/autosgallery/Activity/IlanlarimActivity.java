@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.autosgallery.Adapters.IlanlarimAdapter;
+import com.example.autosgallery.Dialog.AlertDialogClass;
 import com.example.autosgallery.Models.IlanlarimPojo;
 import com.example.autosgallery.R;
 import com.example.autosgallery.RestApi.ManagerAll;
@@ -28,6 +31,7 @@ public class IlanlarimActivity extends AppCompatActivity {
     List<IlanlarimPojo> ilanlarimPojos;
     SharedPreferences sharedPreferences;
     String uye_id;
+    AlertDialogClass alertDialogClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,15 @@ public class IlanlarimActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ilanlarim);
         tanimlamalar();
         ilanlarimiGoruntule();
+
+        // listview item ına a tıklandığında ilan silme için alertdialog çıkması
+       listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               alertDialogClass=new AlertDialogClass(); // alertdialog tanimlama
+               alertDialogClass.ilanlarimAlertDialog(IlanlarimActivity.this,ilanlarimPojos.get(position).getIlanid()); // alertdialog acma
+           }
+       });
     }
     public void tanimlamalar(){
         listView=findViewById(R.id.ilanlarimListView);

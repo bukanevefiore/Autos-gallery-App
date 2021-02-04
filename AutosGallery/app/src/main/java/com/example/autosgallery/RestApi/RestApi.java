@@ -3,6 +3,7 @@ package com.example.autosgallery.RestApi;
 import com.example.autosgallery.Models.DogrulamaPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarimPojo;
+import com.example.autosgallery.Models.IlanlarimSilPojo;
 import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
@@ -43,8 +44,10 @@ public interface RestApi {
     @POST("/autogallery/ilanresimekle.php")
     Call<ResimEklePojo> resimYukle(@Field("uye_id") String uye_id, @Field("ilan_id") String ilan_id, @Field("resim") String base64StringResim);
 
-
     @GET("/autogallery/ilanlarim.php")
     Call<List<IlanlarimPojo>> ilanlarim(@Query("uyeid") String uyeid);
+
+    @GET("/autogallery/ilanlarimdansil.php")
+    Call<IlanlarimSilPojo> ilanlarimSil(@Query("ilan_id") String ilanid);
 
 }

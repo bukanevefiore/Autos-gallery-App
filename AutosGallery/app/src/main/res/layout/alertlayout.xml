@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="SİL"
         android:textSize="15dp"
-        android:id="@+id/buton"></Button>
+        android:id="@+id/butonsil"></Button>
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"

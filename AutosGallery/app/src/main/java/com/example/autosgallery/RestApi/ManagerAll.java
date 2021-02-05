@@ -9,6 +9,7 @@ import com.example.autosgallery.Models.IlanlarimSilPojo;
 import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
+import com.example.autosgallery.Models.SliderPojo;
 
 import java.util.List;
 
@@ -74,6 +75,12 @@ public class ManagerAll extends BaseManager {
     public Call<IlanDetayPojo> ilanDetay(String ilanid)
     {
         Call<IlanDetayPojo> x= getRestApi().ilanDetay(ilanid);
+        return x;
+    }
+
+    public Call<List<SliderPojo>> ilanResimleri(String ilanid)
+    {
+        Call<List<SliderPojo>> x= getRestApi().ilanResimleri(ilanid);
         return x;
     }
 }

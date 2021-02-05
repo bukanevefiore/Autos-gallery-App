@@ -9,6 +9,7 @@ import com.example.autosgallery.Models.IlanlarimSilPojo;
 import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
+import com.example.autosgallery.Models.SliderPojo;
 
 import java.util.List;
 
@@ -57,5 +58,8 @@ public interface RestApi {
 
     @GET("/autogallery/ilandetay.php")
     Call<IlanDetayPojo> ilanDetay(@Query("ilanid") String ilanid);
+
+    @GET("/autogallery/ilanresimleri.php")
+    Call<List<SliderPojo>> ilanResimleri(@Query("ilanid") String ilanid);
 
 }

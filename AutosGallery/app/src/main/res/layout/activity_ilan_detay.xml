@@ -32,12 +32,12 @@
         android:background="@drawable/ic_menu_gallery"
         android:orientation="horizontal">
 
-        <androidx.viewpager2.widget.ViewPager2
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
             android:id="@+id/ilanDetaySlider"
             android:layout_height="match_parent">
 
-        </androidx.viewpager2.widget.ViewPager2>
+        </androidx.viewpager.widget.ViewPager>
     </LinearLayout>
 
 

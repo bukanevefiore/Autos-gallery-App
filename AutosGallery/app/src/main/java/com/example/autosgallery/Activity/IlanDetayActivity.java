@@ -2,13 +2,17 @@ package com.example.autosgallery.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.autosgallery.Adapters.SliderAdapter;
 import com.example.autosgallery.Models.IlanDetayPojo;
+import com.example.autosgallery.Models.SliderPojo;
 import com.example.autosgallery.R;
 import com.example.autosgallery.RestApi.ManagerAll;
 
@@ -26,7 +30,8 @@ public class IlanDetayActivity extends AppCompatActivity {
     private Button ilanDetayAciklamaButon,ilanDetayFavoriEkleButon;
     private ViewPager ilanDetaySlider;
     String ilanId;
-
+    List<SliderPojo> list;
+    SliderAdapter sliderAdapter;
 
 
     @Override
@@ -38,10 +43,8 @@ public class IlanDetayActivity extends AppCompatActivity {
         ilanId=bundle.getString("ilanid");
 
         tanimlamalar();
-
         getIlanDetay();
-
-
+        getResim();
 
     }
 
@@ -63,7 +66,7 @@ public class IlanDetayActivity extends AppCompatActivity {
         ilanDetayKm=findViewById(R.id.ilanDetayKm);
         ilanDetayAciklamaButon=findViewById(R.id.ilanDetayAciklamaButon);
         ilanDetayFavoriEkleButon=findViewById(R.id.ilanDetayFavoriEkleButon);
-//        ilanDetaySlider=findViewById(R.id.ilanDetaySlider);
+        ilanDetaySlider=findViewById(R.id.ilanDetaySlider);
 
 
 
@@ -104,6 +107,24 @@ public class IlanDetayActivity extends AppCompatActivity {
                 Log.d("ilandetayhata",t.getMessage());
             }
         });
+    }
 
+    public void getResim(){
+        Call<List<SliderPojo>> request=ManagerAll.getInstance().ilanResimleri(ilanId);
+        request.enqueue(new Callback<List<SliderPojo>>() {
+            @Override
+            public void onResponse(Call<List<SliderPojo>> call, Response<List<SliderPojo>> response) {
+
+                list=response.body();
+                sliderAdapter=new SliderAdapter(list,getApplicationContext());
+                ilanDetaySlider.setAdapter(sliderAdapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<SliderPojo>> call, Throwable t) {
+
+            }
+        });
     }
 }

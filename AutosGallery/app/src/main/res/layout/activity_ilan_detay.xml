@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.IlanDetayActivity">
+
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="-5dp"
+            android:layout_height="50dp"
+            android:text="İLAN DETAY"
+            android:id="@+id/ilanDetay"
+            android:layout_alignParentTop="true"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:background="@drawable/pressed"></TextView>
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="220dp"
+        android:layout_marginLeft="45dp"
+        android:layout_below="@+id/ilanDetay"
+        android:layout_marginTop="10dp"
+        android:id="@+id/ilanDetayslideLayout"
+        android:background="@drawable/ic_menu_gallery"
+        android:orientation="horizontal">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:layout_width="match_parent"
+            android:id="@+id/ilanDetaySlider"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager2.widget.ViewPager2>
+    </LinearLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_below="@+id/ilanDetayslideLayout"
+        android:id="@+id/ilanDetayScroll"
+        android:background="@drawable/pressed2"
+       android:layout_above="@+id/ilanDetayOzellik"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayFiyat"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Marka"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayMarka"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Model"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayModel"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Seri"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetaySeri"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Yıl"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayYil"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="İlan Tipi"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayIlanTipi"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Kimden"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayKimden"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Motor Tipi"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayMotorTipi"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Motor Hacmi"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayMotorHacmi"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Sürat"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetaySurat"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Yakit Tipi"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayYakitTipi"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Ortalama Yakıt"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayOrtYakit"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Depo Hacmi"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayDepoHacmi"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Km"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="20dp"></TextView>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Fiyat"
+                    android:id="@+id/ilanDetayKm"
+                    android:textSize="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"></TextView>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/ilanDetayOzellik"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:background="@drawable/pressed2"
+            android:id="@+id/ilanDetayAciklamaButon"
+            android:text="Açıklama"
+            android:layout_height="wrap_content"></Button>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:background="@drawable/pressed2"
+            android:id="@+id/ilanDetayFavoriEkleButon"
+            android:text="Favorilere Ekle"
+            android:layout_height="wrap_content"></Button>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.autosgallery.RestApi;
 
 import com.example.autosgallery.Models.DogrulamaPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
+import com.example.autosgallery.Models.IlanlarPojo;
 import com.example.autosgallery.Models.IlanlarimPojo;
 import com.example.autosgallery.Models.IlanlarimSilPojo;
 import com.example.autosgallery.Models.LoginPojo;
@@ -49,5 +50,8 @@ public interface RestApi {
 
     @GET("/autogallery/ilanlarimdansil.php")
     Call<IlanlarimSilPojo> ilanlarimSil(@Query("ilan_id") String ilanid);
+
+    @GET("/autogallery/ilanlar.php")
+    Call<IlanlarPojo> ilanlar();
 
 }

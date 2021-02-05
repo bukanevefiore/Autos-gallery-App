@@ -64,9 +64,9 @@ public class ManagerAll extends BaseManager {
         return x;
     }
 
-    public Call<IlanlarPojo> ilanlar()
+    public Call<List<IlanlarPojo>> ilanlar()
     {
-        Call<IlanlarPojo> x= getRestApi().ilanlar();
+        Call<List<IlanlarPojo>> x= getRestApi().ilanlar();
         return x;
     }
 }

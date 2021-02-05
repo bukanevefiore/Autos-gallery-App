@@ -52,6 +52,6 @@ public interface RestApi {
     Call<IlanlarimSilPojo> ilanlarimSil(@Query("ilan_id") String ilanid);
 
     @GET("/autogallery/ilanlar.php")
-    Call<IlanlarPojo> ilanlar();
+    Call<List<IlanlarPojo>> ilanlar();
 
 }

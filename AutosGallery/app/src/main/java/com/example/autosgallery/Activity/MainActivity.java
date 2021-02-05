@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String navHeaderText;
     TextView navHeaderTextView;
-    Button ilanverbuton, ilanlarimMenuButon;
+    Button ilanverbuton, ilanlarimMenuButon,ilanlarButon;
     
 
     SharedPreferences.Editor editor;   // uygulamadan çıkış yapmak için
@@ -104,6 +104,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
 
+            }
+        });
+
+        ilanlarButon=findViewById(R.id.ilanlarButon);
+        ilanlarButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,IlanlarActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
             }
         });
     }

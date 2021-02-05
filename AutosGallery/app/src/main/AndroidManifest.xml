@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AutosGallery"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.IlanlarimActivity"></activity>
+        <activity android:name=".Activity.IlanlarActivity"></activity>
+        <activity android:name=".Activity.IlanlarimActivity" />
         <activity android:name=".Activity.IlanBilgileriActivity" />
         <activity android:name=".Activity.IlanResimlerActivity" />
         <activity android:name=".Activity.YakitActivity" />

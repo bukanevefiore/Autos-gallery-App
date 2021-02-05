@@ -16,7 +16,7 @@
             android:layout_marginTop="-5dp"
             android:layout_height="50dp"
             android:text="İLAN DETAY"
-            android:id="@+id/ilanDetay"
+            android:id="@+id/ilanDetayBaslik"
             android:layout_alignParentTop="true"
             android:textSize="20dp"
             android:gravity="center"
@@ -26,7 +26,7 @@
         android:layout_width="320dp"
         android:layout_height="220dp"
         android:layout_marginLeft="45dp"
-        android:layout_below="@+id/ilanDetay"
+        android:layout_below="@+id/ilanDetayBaslik"
         android:layout_marginTop="10dp"
         android:id="@+id/ilanDetayslideLayout"
         android:background="@drawable/ic_menu_gallery"
@@ -135,15 +135,16 @@
                     android:text="Seri"
                     android:textSize="20dp"
                     android:layout_marginLeft="20dp"></TextView>
+
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="Fiyat"
                     android:id="@+id/ilanDetaySeri"
-                    android:textSize="20dp"
+                    android:layout_width="163dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
                     android:gravity="right"
-                    android:layout_marginRight="20dp"></TextView>
+                    android:text="Fiyat"
+                    android:textSize="20dp"></TextView>
 
             </LinearLayout>
 

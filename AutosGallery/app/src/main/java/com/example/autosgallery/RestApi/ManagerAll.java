@@ -1,6 +1,7 @@
 package com.example.autosgallery.RestApi;
 
 import com.example.autosgallery.Models.DogrulamaPojo;
+import com.example.autosgallery.Models.IlanDetayPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarPojo;
 import com.example.autosgallery.Models.IlanlarimPojo;
@@ -67,6 +68,12 @@ public class ManagerAll extends BaseManager {
     public Call<List<IlanlarPojo>> ilanlar()
     {
         Call<List<IlanlarPojo>> x= getRestApi().ilanlar();
+        return x;
+    }
+
+    public Call<IlanDetayPojo> ilanDetay(String ilanid)
+    {
+        Call<IlanDetayPojo> x= getRestApi().ilanDetay(ilanid);
         return x;
     }
 }

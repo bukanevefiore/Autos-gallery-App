@@ -3,7 +3,10 @@ package com.example.autosgallery.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,6 +27,7 @@ public class IlanlarActivity extends AppCompatActivity {
     List<IlanlarPojo> ilanlarPojoList;
     IlanlarAdapter ilanlarAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +35,23 @@ public class IlanlarActivity extends AppCompatActivity {
 
         tanimlamalar();
         ilanlarGoruntule();
+
+        // listeden herhangi bir ilana tıklandığında detay actvivty açılması için intentle paremetre gönderme
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent=new Intent(IlanlarActivity.this,IlanDetayActivity.class);
+                intent.putExtra("ilanid",ilanlarPojoList.get(position).getIlanid());
+                startActivity(intent);
+            }
+        });
     }
 
     public void tanimlamalar(){
         listView=findViewById(R.id.ilanlarListView);
+
+
     }
 
     public void ilanlarGoruntule(){

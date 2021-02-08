@@ -1,6 +1,7 @@
 package com.example.autosgallery.RestApi;
 
 import com.example.autosgallery.Models.DogrulamaPojo;
+import com.example.autosgallery.Models.FavoriKontrolPojo;
 import com.example.autosgallery.Models.IlanDetayPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarPojo;
@@ -81,6 +82,12 @@ public class ManagerAll extends BaseManager {
     public Call<List<SliderPojo>> ilanResimleri(String ilanid)
     {
         Call<List<SliderPojo>> x= getRestApi().ilanResimleri(ilanid);
+        return x;
+    }
+
+    public Call<FavoriKontrolPojo> getFavoriButonText(String uyeid, String ilanid)
+    {
+        Call<FavoriKontrolPojo> x= getRestApi().getFavoriButonText(uyeid,ilanid);
         return x;
     }
 }

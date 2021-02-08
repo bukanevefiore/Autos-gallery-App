@@ -5,12 +5,14 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.autosgallery.Adapters.SliderAdapter;
+import com.example.autosgallery.Models.FavoriKontrolPojo;
 import com.example.autosgallery.Models.IlanDetayPojo;
 import com.example.autosgallery.Models.SliderPojo;
 import com.example.autosgallery.R;
@@ -18,6 +20,7 @@ import com.example.autosgallery.RestApi.ManagerAll;
 
 import java.util.List;
 
+import me.relex.circleindicator.CircleIndicator;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,8 +34,10 @@ public class IlanDetayActivity extends AppCompatActivity {
     private ViewPager ilanDetaySlider;
     String ilanId;
     List<SliderPojo> list;
-    SliderAdapter sliderAdapter;
-
+    SliderAdapter sliderAdapter;   // resimlere hareket özelliği
+    CircleIndicator circleIndicator;  // resimleri sağa sola kaydırma noktaları
+    SharedPreferences sharedPreferences;
+    String uye_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +46,13 @@ public class IlanDetayActivity extends AppCompatActivity {
         // ilanlar activity dedn gönderilen ilanid yi bundle ile alma
         Bundle bundle=getIntent().getExtras();
         ilanId=bundle.getString("ilanid");
+        sharedPreferences=getApplicationContext().getSharedPreferences("giris",0);
+        uye_id=sharedPreferences.getString("uye_id",null);
 
         tanimlamalar();
         getIlanDetay();
         getResim();
+        getfavoriButonText();
 
     }
 
@@ -64,9 +72,12 @@ public class IlanDetayActivity extends AppCompatActivity {
         ilanDetayYakitTipi=findViewById(R.id.ilanDetayYakitTipi);
         ilanDetayDepoHacmi=findViewById(R.id.ilanDetayDepoHacmi);
         ilanDetayKm=findViewById(R.id.ilanDetayKm);
+
         ilanDetayAciklamaButon=findViewById(R.id.ilanDetayAciklamaButon);
         ilanDetayFavoriEkleButon=findViewById(R.id.ilanDetayFavoriEkleButon);
         ilanDetaySlider=findViewById(R.id.ilanDetaySlider);
+
+        circleIndicator=findViewById(R.id.sliderNokta);
 
 
 
@@ -118,12 +129,35 @@ public class IlanDetayActivity extends AppCompatActivity {
                 list=response.body();
                 sliderAdapter=new SliderAdapter(list,getApplicationContext());
                 ilanDetaySlider.setAdapter(sliderAdapter);
+                circleIndicator.setViewPager(ilanDetaySlider);  // viewpage i noktalara set etme
+                circleIndicator.bringToFront();  // noktaları resmin önine getirme
 
             }
 
             @Override
             public void onFailure(Call<List<SliderPojo>> call, Throwable t) {
 
+            }
+        });
+    }
+
+    public void getfavoriButonText(){
+        Call<FavoriKontrolPojo> request=ManagerAll.getInstance().getFavoriButonText(uye_id,ilanId);
+        request.enqueue(new Callback<FavoriKontrolPojo>() {
+            @Override
+            public void onResponse(Call<FavoriKontrolPojo> call, Response<FavoriKontrolPojo> response) {
+                if(response.body().isTf())  // istf=true ise
+                {
+                    ilanDetayFavoriEkleButon.setText(response.body().getText());
+                }
+                else{
+                    ilanDetayFavoriEkleButon.setText(response.body().getText());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<FavoriKontrolPojo> call, Throwable t) {
+                Log.d("ilandetayfavorihataa",t.getMessage());
             }
         });
     }

@@ -1,6 +1,6 @@
 package com.example.autosgallery.Models;
 
-public class FavoriKontrolPojo{
+public class FavoriIslemPojo{
 	private boolean tf;
 	private String text;
 
@@ -23,7 +23,7 @@ public class FavoriKontrolPojo{
 	@Override
  	public String toString(){
 		return 
-			"FavoriKontrolPojo{" + 
+			"FavoriIslemPojo{" + 
 			"tf = '" + tf + '\'' + 
 			",text = '" + text + '\'' + 
 			"}";

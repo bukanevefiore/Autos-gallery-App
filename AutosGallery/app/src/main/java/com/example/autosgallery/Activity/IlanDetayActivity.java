@@ -2,9 +2,7 @@ package com.example.autosgallery.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -143,16 +141,22 @@ public class IlanDetayActivity extends AppCompatActivity {
 
     public void getfavoriButonText(){
         Call<FavoriKontrolPojo> request=ManagerAll.getInstance().getFavoriButonText(uye_id,ilanId);
+
+
         request.enqueue(new Callback<FavoriKontrolPojo>() {
             @Override
             public void onResponse(Call<FavoriKontrolPojo> call, Response<FavoriKontrolPojo> response) {
-                if(response.body().isTf())  // istf=true ise
+                /*
+                if (response.body().isTf())  // istf=true ise
                 {
                     ilanDetayFavoriEkleButon.setText(response.body().getText());
-                }
-                else{
+
+
+                } else {
                     ilanDetayFavoriEkleButon.setText(response.body().getText());
                 }
+
+                 */
             }
 
             @Override

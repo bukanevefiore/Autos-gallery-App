@@ -6,10 +6,13 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.autosgallery.Adapters.SliderAdapter;
+import com.example.autosgallery.Models.FavoriIslemPojo;
 import com.example.autosgallery.Models.FavoriKontrolPojo;
 import com.example.autosgallery.Models.IlanDetayPojo;
 import com.example.autosgallery.Models.SliderPojo;
@@ -44,14 +47,15 @@ public class IlanDetayActivity extends AppCompatActivity {
         // ilanlar activity dedn gönderilen ilanid yi bundle ile alma
         Bundle bundle=getIntent().getExtras();
         ilanId=bundle.getString("ilanid");
-        sharedPreferences=getApplicationContext().getSharedPreferences("giris",0);
-        uye_id=sharedPreferences.getString("uye_id",null);
+        sharedPreferences=getApplicationContext().getSharedPreferences("giriş",0);
+        uye_id= sharedPreferences.getString("uye_id",null);
+
 
         tanimlamalar();
         getIlanDetay();
         getResim();
         getfavoriButonText();
-
+        action();
     }
 
     public void tanimlamalar(){
@@ -76,6 +80,7 @@ public class IlanDetayActivity extends AppCompatActivity {
         ilanDetaySlider=findViewById(R.id.ilanDetaySlider);
 
         circleIndicator=findViewById(R.id.sliderNokta);
+
 
 
 
@@ -106,7 +111,7 @@ public class IlanDetayActivity extends AppCompatActivity {
                 ilanDetayKm.setText(response.body().getKm());
 
 
-                Log.i("gecikme","geckmeeeeeeeeeeeeeeeeeee");
+                //Log.i("aaaaaaaaaa",uye_id);
 
             }
 
@@ -130,38 +135,75 @@ public class IlanDetayActivity extends AppCompatActivity {
                 circleIndicator.setViewPager(ilanDetaySlider);  // viewpage i noktalara set etme
                 circleIndicator.bringToFront();  // noktaları resmin önine getirme
 
+
+
             }
 
             @Override
             public void onFailure(Call<List<SliderPojo>> call, Throwable t) {
 
+                Log.d("detayresimhata",t.getMessage());
             }
         });
     }
 
     public void getfavoriButonText(){
-        Call<FavoriKontrolPojo> request=ManagerAll.getInstance().getFavoriButonText(uye_id,ilanId);
 
+       //ilanDetayFavoriEkleButon.setText(uye_id);
+        Call<FavoriKontrolPojo> request=ManagerAll.getInstance().getFavoriButonText(uye_id,ilanId);
 
         request.enqueue(new Callback<FavoriKontrolPojo>() {
             @Override
             public void onResponse(Call<FavoriKontrolPojo> call, Response<FavoriKontrolPojo> response) {
-                /*
+
                 if (response.body().isTf())  // istf=true ise
                 {
                     ilanDetayFavoriEkleButon.setText(response.body().getText());
+                   // ilanDetayFavoriEkleButon.setText("favoriden çıkar");
 
 
                 } else {
                     ilanDetayFavoriEkleButon.setText(response.body().getText());
                 }
 
-                 */
+
             }
 
             @Override
             public void onFailure(Call<FavoriKontrolPojo> call, Throwable t) {
                 Log.d("ilandetayfavorihataa",t.getMessage());
+            }
+        });
+
+
+    }
+
+    public void action(){
+        ilanDetayFavoriEkleButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Call<FavoriIslemPojo> request=ManagerAll.getInstance().favoriIslem(uye_id,ilanId);
+                request.enqueue(new Callback<FavoriIslemPojo>() {
+                    @Override
+                    public void onResponse(Call<FavoriIslemPojo> call, Response<FavoriIslemPojo> response) {
+                        if(response.body().isTf()){
+                            Toast.makeText(getApplicationContext(),response.body().getText(),Toast.LENGTH_LONG).show();
+                            getfavoriButonText();
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),response.body().getText(),Toast.LENGTH_LONG).show();
+                            getfavoriButonText();
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<FavoriIslemPojo> call, Throwable t) {
+
+                        Log.d("favoriyeeklemehata",t.getMessage());
+                    }
+                });
             }
         });
     }

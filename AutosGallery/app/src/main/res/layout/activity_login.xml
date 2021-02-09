@@ -89,5 +89,4 @@
                     android:textStyle="bold"></TextView>
 </LinearLayout>
 </ScrollView>
-
 </LinearLayout>

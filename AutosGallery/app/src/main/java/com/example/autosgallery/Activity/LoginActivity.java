@@ -38,9 +38,9 @@ public class LoginActivity extends AppCompatActivity  {
     private EditText eMailView, mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private Button emailSignInButton;
+    private Button emailSignInButton,kontrol;
     private TextView registerButon;
-
+    String uyeid;
 
 
     @Override
@@ -54,6 +54,8 @@ public class LoginActivity extends AppCompatActivity  {
             Intent intent=new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
+
+
 
         tanimlamalar();
         ProgressDialog progressDialog=new ProgressDialog(this);

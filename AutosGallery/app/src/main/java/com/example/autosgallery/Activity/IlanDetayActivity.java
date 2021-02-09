@@ -40,6 +40,7 @@ public class IlanDetayActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String uye_id;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,8 @@ public class IlanDetayActivity extends AppCompatActivity {
     }
 
     public void tanimlamalar(){
+
+        // ilan bilgileri
         ilanDetayBaslik=findViewById(R.id.ilanDetayBaslik);
         ilanDetayFiyat=findViewById(R.id.ilanDetayFiyat);
         ilanDetayMarka=findViewById(R.id.ilanDetayMarka);

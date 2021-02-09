@@ -9,7 +9,11 @@ import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.autosgallery.Adapters.FavoriSliderAdapter;
+import com.example.autosgallery.Adapters.SliderAdapter;
+import com.example.autosgallery.Models.FavoriSliderPojo;
 import com.example.autosgallery.R;
+import com.example.autosgallery.RestApi.ManagerAll;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -21,6 +25,14 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
+import java.util.List;
+
+import me.relex.circleindicator.CircleIndicator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     String navHeaderText;
     TextView navHeaderTextView;
     Button ilanverbuton, ilanlarimMenuButon,ilanlarButon;
+    String uye_id;  // slider için
+    FavoriSliderAdapter favoriSliderAdapter;
+    ViewPager mainActivitySliderFavori;
+    CircleIndicator mainActivitysliderNokta;
     
 
     SharedPreferences.Editor editor;   // uygulamadan çıkış yapmak için
@@ -40,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+
+        sharedPreferences=getApplicationContext().getSharedPreferences("giriş",0);
+        uye_id= sharedPreferences.getString("uye_id",null);
+
         tanimlamalar();
+        getFavoriSlider();
 
   /*
         // naw header başlığına giriş yapan kullanıcının gmailini eklemek için kullanıyoruz
@@ -85,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void tanimlamalar(){
+
+        // slider
+        mainActivitySliderFavori=findViewById(R.id.mainActivitySliderFavori);
+        mainActivitysliderNokta=findViewById(R.id.mainActivitysliderNokta);
+
         ilanverbuton=findViewById(R.id.ilanVerButon);
         ilanverbuton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +143,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void getFavoriSlider(){
+        Call<List<FavoriSliderPojo>> request= ManagerAll.getInstance().mainSetSlider(uye_id);
+        request.enqueue(new Callback<List<FavoriSliderPojo>>() {
+            @Override
+            public void onResponse(Call<List<FavoriSliderPojo>> call, Response<List<FavoriSliderPojo>> response) {
+                if(response.body().get(0).isTf()){
+                    if(response.body().size()>0)
+                    {
+                        favoriSliderAdapter = new FavoriSliderAdapter(response.body(), MainActivity.this, MainActivity.this);
+                        mainActivitySliderFavori.setAdapter(favoriSliderAdapter);
+                        mainActivitysliderNokta.setViewPager(mainActivitySliderFavori);  // viewpage i noktalara set etme
+                        mainActivitysliderNokta.bringToFront();  // noktaları resmin önine getirme
+                    }
+
+                }
+                else{
+                    favoriSliderAdapter = new FavoriSliderAdapter(response.body(), MainActivity.this, MainActivity.this);
+                    mainActivitySliderFavori.setAdapter(favoriSliderAdapter);
+                    mainActivitysliderNokta.setViewPager(mainActivitySliderFavori);  // viewpage i noktalara set etme
+                    mainActivitysliderNokta.bringToFront();  // noktaları resmin önine getirme
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<FavoriSliderPojo>> call, Throwable t) {
+
+                Log.d("mainSliderhata",t.getMessage());
+            }
+        });
+    }
+
+    // favoriye ekleme çıkarma sonucunda main activity deki slider anlık güncelleme yapması için method
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        getFavoriSlider();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -133,8 +199,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
 
-
-
     }
+
 
 }

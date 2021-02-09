@@ -3,6 +3,7 @@ package com.example.autosgallery.RestApi;
 import com.example.autosgallery.Models.DogrulamaPojo;
 import com.example.autosgallery.Models.FavoriIslemPojo;
 import com.example.autosgallery.Models.FavoriKontrolPojo;
+import com.example.autosgallery.Models.FavoriSliderPojo;
 import com.example.autosgallery.Models.IlanDetayPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarPojo;
@@ -95,6 +96,12 @@ public class ManagerAll extends BaseManager {
     public Call<FavoriIslemPojo> favoriIslem(String uyeid, String ilanid)
     {
         Call<FavoriIslemPojo> x= getRestApi().favoriIslem(uyeid,ilanid);
+        return x;
+    }
+
+    public Call<List<FavoriSliderPojo>> mainSetSlider(String uyeid)
+    {
+        Call<List<FavoriSliderPojo>> x= getRestApi().mainSetSlider(uyeid);
         return x;
     }
 }

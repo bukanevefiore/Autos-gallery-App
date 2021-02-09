@@ -3,6 +3,7 @@ package com.example.autosgallery.RestApi;
 import com.example.autosgallery.Models.DogrulamaPojo;
 import com.example.autosgallery.Models.FavoriIslemPojo;
 import com.example.autosgallery.Models.FavoriKontrolPojo;
+import com.example.autosgallery.Models.FavoriSliderPojo;
 import com.example.autosgallery.Models.IlanDetayPojo;
 import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarPojo;
@@ -69,5 +70,8 @@ public interface RestApi {
 
     @GET("/autogallery/favoriislem.php")
     Call<FavoriIslemPojo> favoriIslem(@Query("uye_id") String uyeid, @Query("ilan_id") String ilanid);
+
+    @GET("/autogallery/favoriilanslider.php")
+    Call<List<FavoriSliderPojo>> mainSetSlider(@Query("uye_id") String uyeid);
 
 }

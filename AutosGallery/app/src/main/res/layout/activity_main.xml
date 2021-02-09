@@ -8,23 +8,36 @@
     android:orientation="vertical"
     tools:openDrawer="start">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="320dp"
         android:layout_height="220dp"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/slideLayout"
+        android:id="@+id/mainActivitySlider"
         android:background="@drawable/ic_menu_gallery"
         android:orientation="horizontal">
 
-        <androidx.viewpager2.widget.ViewPager2
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
+            android:id="@+id/mainActivitySliderFavori"
             android:layout_height="match_parent">
 
-        </androidx.viewpager2.widget.ViewPager2>
-    </LinearLayout>
+        </androidx.viewpager.widget.ViewPager>
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/mainActivitysliderNokta"
+            app:ci_drawable="@color/cardview_dark_background"
+            app:ci_drawable_unselected="@color/black"
+            android:layout_alignParentBottom="true">
+
+        </me.relex.circleindicator.CircleIndicator>
+
+
+    </RelativeLayout>
+
     <LinearLayout
-        android:layout_below="@id/slideLayout"
+        android:layout_below="@id/mainActivitySlider"
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -13,6 +13,7 @@ import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
 import com.example.autosgallery.Models.SliderPojo;
+import com.example.autosgallery.Models.UserPojo;
 
 import java.util.List;
 
@@ -73,5 +74,8 @@ public interface RestApi {
 
     @GET("/autogallery/favoriilanslider.php")
     Call<List<FavoriSliderPojo>> mainSetSlider(@Query("uye_id") String uyeid);
+
+    @GET("/autogallery/bilgiler.php")
+    Call<UserPojo> getInformation(@Query("uye_id") String uyeid);
 
 }

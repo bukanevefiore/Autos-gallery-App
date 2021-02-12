@@ -13,6 +13,7 @@ import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
 import com.example.autosgallery.Models.SliderPojo;
+import com.example.autosgallery.Models.UserPojo;
 
 import java.util.List;
 
@@ -102,6 +103,12 @@ public class ManagerAll extends BaseManager {
     public Call<List<FavoriSliderPojo>> mainSetSlider(String uyeid)
     {
         Call<List<FavoriSliderPojo>> x= getRestApi().mainSetSlider(uyeid);
+        return x;
+    }
+
+    public Call<UserPojo> getInformation(String uyeid)
+    {
+        Call<UserPojo> x= getRestApi().getInformation(uyeid);
         return x;
     }
 }

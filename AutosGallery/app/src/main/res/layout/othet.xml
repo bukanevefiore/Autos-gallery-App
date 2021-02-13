@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_marginLeft="10dp"
     android:layout_marginBottom="10dp"
+    android:id="@+id/mesajlarListe"
     android:background="@drawable/pressed"
     android:padding="10dp"
     android:layout_marginRight="120dp"

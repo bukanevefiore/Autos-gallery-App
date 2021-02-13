@@ -137,7 +137,10 @@ public class MainActivity extends AppCompatActivity {
         kisiMesajları.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+                Intent intent=new Intent(MainActivity.this,MesajlarActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
             }
         });
 

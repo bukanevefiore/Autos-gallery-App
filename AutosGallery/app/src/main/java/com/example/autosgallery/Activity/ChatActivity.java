@@ -3,6 +3,8 @@ package com.example.autosgallery.Activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,13 +13,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.autosgallery.Adapters.MesajAdapter;
 import com.example.autosgallery.Dialog.OtherId;
+import com.example.autosgallery.Models.MesajModel;
 import com.example.autosgallery.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ChatActivity extends AppCompatActivity {
@@ -27,6 +35,10 @@ public class ChatActivity extends AppCompatActivity {
     DatabaseReference reference;
     EditText mesajEditText;
     Button sendMesajButon;
+    List<MesajModel> list;
+    MesajAdapter adapter;
+    RecyclerView mesajListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +47,18 @@ public class ChatActivity extends AppCompatActivity {
 
         tanimlamalar();
         action();
+        load();
     }
     public void tanimlamalar(){
 
+        list=new ArrayList<>();
+        adapter=new MesajAdapter(list,getApplicationContext(),userId);
+        mesajListView=findViewById(R.id.mesajListView);
+        RecyclerView.LayoutManager manager=new LinearLayoutManager(getApplicationContext());
+        mesajListView.setLayoutManager(manager);
+        mesajListView.setAdapter(adapter);
+
+        
         mesajEditText=findViewById(R.id.mesajEditText);
         sendMesajButon=findViewById(R.id.sendMesajButon);
         reference= FirebaseDatabase.getInstance().getReference();
@@ -84,5 +105,43 @@ public class ChatActivity extends AppCompatActivity {
         msj.put("from",userId);
         msj.put("to",otherId);
         return msj;
+    }
+
+    public void load(){
+        reference.child("messages").child(otherId).child(userId).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                MesajModel m=snapshot.getValue(MesajModel.class);
+                list.add(m);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                MesajModel m=snapshot.getValue(MesajModel.class);
+                list.add(m);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                MesajModel m=snapshot.getValue(MesajModel.class);
+                list.add(m);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

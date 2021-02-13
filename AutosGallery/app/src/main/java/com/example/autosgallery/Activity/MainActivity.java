@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String navHeaderText;
     TextView navHeaderTextView;
-    Button ilanverbuton, ilanlarimMenuButon,ilanlarButon,iletisimBilgileri;
+    Button ilanverbuton, ilanlarimMenuButon,ilanlarButon,iletisimBilgileri,kisiMesajları;
     String uye_id;  // slider için
     FavoriSliderAdapter favoriSliderAdapter;
     ViewPager mainActivitySliderFavori;
@@ -130,6 +130,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
 
+            }
+        });
+
+        kisiMesajları=findViewById(R.id.kisiMesajları);
+        kisiMesajları.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
             }
         });
 

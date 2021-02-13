@@ -47,16 +47,8 @@ public class MesajAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         MesajModel m=list.get(position);
-        switch (holder.getItemViewType()){
-            case user:
-            {
-                ((ViewHolder)holder).setle(m);
-            }
-            case other:
-            {
-                ((ViewHolder)holder).setle(m);
-            }
-        }
+        ((ViewHolder)holder).setle(m);
+
     }
 
     @Override
@@ -67,6 +59,7 @@ public class MesajAdapter extends RecyclerView.Adapter {
     {
 
         TextView mesajbody;
+
         public ViewHolder(View itemView){
             super(itemView);
             if(state)

@@ -91,6 +91,7 @@
             android:drawableLeft="@android:drawable/ic_dialog_email"
             android:background="@drawable/buton_back"
             android:text="MESAJLARIM"
+            android:id="@+id/kisiMesajları"
             android:textSize="15dp"
             android:textColor="#000"
             android:layout_gravity="center"

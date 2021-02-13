@@ -51,14 +51,7 @@ public class ChatActivity extends AppCompatActivity {
     }
     public void tanimlamalar(){
 
-        list=new ArrayList<>();
-        adapter=new MesajAdapter(list,getApplicationContext(),userId);
-        mesajListView=findViewById(R.id.mesajListView);
-        RecyclerView.LayoutManager manager=new LinearLayoutManager(getApplicationContext());
-        mesajListView.setLayoutManager(manager);
-        mesajListView.setAdapter(adapter);
 
-        
         mesajEditText=findViewById(R.id.mesajEditText);
         sendMesajButon=findViewById(R.id.sendMesajButon);
         reference= FirebaseDatabase.getInstance().getReference();
@@ -66,6 +59,16 @@ public class ChatActivity extends AppCompatActivity {
         // uyeid yi alıyoruz
         sharedPreferences=getApplicationContext().getSharedPreferences("giriş",0);
         userId= sharedPreferences.getString("uye_id",null);
+
+        list=new ArrayList<>();
+        adapter=new MesajAdapter(list,getApplicationContext(),userId);
+
+        mesajListView=findViewById(R.id.mesajListView);
+        RecyclerView.LayoutManager manager=new LinearLayoutManager(getApplicationContext());
+        mesajListView.setLayoutManager(manager);
+        mesajListView.setAdapter(adapter);
+
+
     }
 
     public void action(){
@@ -108,7 +111,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     public void load(){
-        reference.child("messages").child(otherId).child(userId).addChildEventListener(new ChildEventListener() {
+        reference.child("messages").child(userId).child(otherId).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 

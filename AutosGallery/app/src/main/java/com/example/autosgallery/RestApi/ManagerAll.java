@@ -9,6 +9,7 @@ import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarPojo;
 import com.example.autosgallery.Models.IlanlarimPojo;
 import com.example.autosgallery.Models.IlanlarimSilPojo;
+import com.example.autosgallery.Models.KisiBilgiUpdatePojo;
 import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
@@ -109,6 +110,12 @@ public class ManagerAll extends BaseManager {
     public Call<UserPojo> getInformation(String uyeid)
     {
         Call<UserPojo> x= getRestApi().getInformation(uyeid);
+        return x;
+    }
+
+    public Call<KisiBilgiUpdatePojo> kisiUpdate(String uyeid,String user,String pass)
+    {
+        Call<KisiBilgiUpdatePojo> x= getRestApi().kisiUpdate(uyeid,user,pass);
         return x;
     }
 }

@@ -9,6 +9,7 @@ import com.example.autosgallery.Models.IlanSonucPojo;
 import com.example.autosgallery.Models.IlanlarPojo;
 import com.example.autosgallery.Models.IlanlarimPojo;
 import com.example.autosgallery.Models.IlanlarimSilPojo;
+import com.example.autosgallery.Models.KisiBilgiUpdatePojo;
 import com.example.autosgallery.Models.LoginPojo;
 import com.example.autosgallery.Models.RegisterPojo;
 import com.example.autosgallery.Models.ResimEklePojo;
@@ -76,6 +77,9 @@ public interface RestApi {
     Call<List<FavoriSliderPojo>> mainSetSlider(@Query("uye_id") String uyeid);
 
     @GET("/autogallery/bilgiler.php")
-    Call<UserPojo> getInformation(@Query("uye_id") String uyeid);
+    Call<UserPojo> getInformation(@Query("uyeid") String uyeid);
+
+    @GET("/autogallery/guncelle.php")
+    Call<KisiBilgiUpdatePojo> kisiUpdate(@Query("uyeid") String uyeid, @Query("user") String user, @Query("pass") String pass);
 
 }

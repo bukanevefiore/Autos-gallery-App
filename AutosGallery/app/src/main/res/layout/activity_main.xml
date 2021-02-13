@@ -71,6 +71,7 @@
             android:background="@drawable/buton_back"
             android:text="İLETİŞİM BİLGİLERİ"
             android:textSize="15dp"
+            android:id="@+id/iletisimBilgileri"
             android:textColor="#000"
             android:layout_gravity="center"
             android:layout_marginTop="25dp"></Button>

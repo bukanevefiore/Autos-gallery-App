@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "707591505495",
+    "project_id": "autosgallery-1eb49",
+    "storage_bucket": "autosgallery-1eb49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707591505495:android:645f94abaa863778074512",
+        "android_client_info": {
+          "package_name": "com.example.autosgallery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707591505495-uc7ede18nogt9edagdcnpdn0ivtu3m3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlWgtCSwuTufmrnHo0ULBYjee1Q7v4Ihc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707591505495-uc7ede18nogt9edagdcnpdn0ivtu3m3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

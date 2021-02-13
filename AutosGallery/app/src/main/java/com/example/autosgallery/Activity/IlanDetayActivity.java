@@ -3,6 +3,7 @@ package com.example.autosgallery.Activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.autosgallery.Adapters.SliderAdapter;
+import com.example.autosgallery.Dialog.OtherId;
 import com.example.autosgallery.Models.FavoriIslemPojo;
 import com.example.autosgallery.Models.FavoriKontrolPojo;
 import com.example.autosgallery.Models.IlanDetayPojo;
@@ -31,7 +33,7 @@ public class IlanDetayActivity extends AppCompatActivity {
     private TextView ilanDetayBaslik,ilanDetayFiyat,ilanDetayMarka,ilanDetayModel,ilanDetaySeri,ilanDetayYil,ilanDetayIlanTipi,
             ilanDetayKimden,ilanDetayMotorTipi,ilanDetayMotorHacmi,ilanDetaySurat,ilanDetayYakitTipi,ilanDetayOrtYakit,
             ilanDetayDepoHacmi,ilanDetayKm;
-    private Button ilanDetayAciklamaButon,ilanDetayFavoriEkleButon;
+    private Button ilanDetayFavoriEkleButon,ilanMesajGonderButon;
     private ViewPager ilanDetaySlider;
     String ilanId;
     List<SliderPojo> list;
@@ -39,6 +41,7 @@ public class IlanDetayActivity extends AppCompatActivity {
     CircleIndicator circleIndicator;  // resimleri sağa sola kaydırma noktaları
     SharedPreferences sharedPreferences;
     String uye_id;
+    String otherId; // mesajlaşma için ilanı verenin id si
 
 
     @Override
@@ -78,7 +81,7 @@ public class IlanDetayActivity extends AppCompatActivity {
         ilanDetayDepoHacmi=findViewById(R.id.ilanDetayDepoHacmi);
         ilanDetayKm=findViewById(R.id.ilanDetayKm);
 
-        ilanDetayAciklamaButon=findViewById(R.id.ilanDetayAciklamaButon);
+        ilanMesajGonderButon=findViewById(R.id.ilanMesajGonderButon);
         ilanDetayFavoriEkleButon=findViewById(R.id.ilanDetayFavoriEkleButon);
         ilanDetaySlider=findViewById(R.id.ilanDetaySlider);
 
@@ -112,6 +115,7 @@ public class IlanDetayActivity extends AppCompatActivity {
                 ilanDetayYakitTipi.setText(response.body().getYakittipi());
                 ilanDetayDepoHacmi.setText(response.body().getDepohacmi());
                 ilanDetayKm.setText(response.body().getKm());
+                otherId=response.body().getUyeid();
 
 
                 //Log.i("aaaaaaaaaa",uye_id);
@@ -207,6 +211,16 @@ public class IlanDetayActivity extends AppCompatActivity {
                         Log.d("favoriyeeklemehata",t.getMessage());
                     }
                 });
+            }
+        });
+
+        ilanMesajGonderButon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(IlanDetayActivity.this,ChatActivity.class);
+                OtherId.setOtherId(otherId);  // otherid yi set işlemi
+                startActivity(intent);
             }
         });
     }

@@ -413,8 +413,8 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:background="@drawable/pressed2"
-            android:id="@+id/ilanDetayAciklamaButon"
-            android:text="Açıklama"
+            android:id="@+id/ilanMesajGonderButon"
+            android:text="MESAJ GONDER"
             android:layout_height="wrap_content"></Button>
         <Button
             android:layout_width="0dp"

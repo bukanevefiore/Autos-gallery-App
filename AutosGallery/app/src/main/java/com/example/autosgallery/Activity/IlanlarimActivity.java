@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.autosgallery.Adapters.IlanlarimAdapter;
@@ -35,6 +37,7 @@ public class IlanlarimActivity extends AppCompatActivity {
     List<IlanlarimPojo> ilanlarimPojos;
     SharedPreferences sharedPreferences;
     String uye_id;
+    TextView geri;
 
 
     @Override
@@ -51,6 +54,15 @@ public class IlanlarimActivity extends AppCompatActivity {
               ilanlarimAlertDialog(IlanlarimActivity.this,ilanlarimPojos.get(position).getIlanid()); // alertdialog acma
            }
        });
+
+        geri=findViewById(R.id.geri);
+        geri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(IlanlarimActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     public void tanimlamalar(){
         listView=findViewById(R.id.ilanlarimListView);

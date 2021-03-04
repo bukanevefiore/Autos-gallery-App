@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String navHeaderText;
     TextView navHeaderTextView;
-    Button ilanverbuton, ilanlarimMenuButon,ilanlarButon,iletisimBilgileri,kisiMesajları;
+    Button ilanverbuton, ilanlarimMenuButon,ilanlarButon,iletisimBilgileri,kisiMesajları, app_cikis;
     String uye_id;  // slider için
     FavoriSliderAdapter favoriSliderAdapter;
     ViewPager mainActivitySliderFavori;
@@ -118,6 +118,19 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent=new Intent(MainActivity.this,IlanBilgileriActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+            }
+        });
+
+        // uygulamadan çıkış işlemi
+        app_cikis=findViewById(R.id.app_cikis);
+        app_cikis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor=sharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+                Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -203,23 +216,6 @@ public class MainActivity extends AppCompatActivity {
         getFavoriSlider();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-
-
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-
-    }
 
 
 }

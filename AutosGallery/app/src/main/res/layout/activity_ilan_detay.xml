@@ -8,14 +8,12 @@
     tools:context=".Activity.IlanDetayActivity">
 
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_marginTop="-5dp"
             android:layout_height="50dp"
             android:text="İLAN DETAY"
+            android:drawableLeft="@drawable/abc_vector_test"
             android:id="@+id/ilanDetayBaslik"
             android:layout_alignParentTop="true"
             android:textSize="20dp"

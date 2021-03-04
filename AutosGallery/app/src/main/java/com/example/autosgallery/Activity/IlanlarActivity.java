@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.autosgallery.Adapters.IlanlarAdapter;
@@ -26,6 +27,7 @@ public class IlanlarActivity extends AppCompatActivity {
     ListView listView;
     List<IlanlarPojo> ilanlarPojoList;
     IlanlarAdapter ilanlarAdapter;
+    TextView geri;
 
 
     @Override
@@ -46,6 +48,16 @@ public class IlanlarActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        geri=findViewById(R.id.geri);
+        geri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(IlanlarActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void tanimlamalar(){

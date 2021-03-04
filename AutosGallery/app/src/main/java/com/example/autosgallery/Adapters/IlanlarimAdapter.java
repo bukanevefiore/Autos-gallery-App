@@ -64,7 +64,7 @@ public class IlanlarimAdapter extends BaseAdapter {
         baslik.setText(list.get(position).getBaslik());
         fiyat.setText(list.get(position).getFiyat());
         // picasso kütp. ile resmimizi alıyoruz
-        Picasso.get().load("http://192.168.1.4/autogallery/"+list.get(position).getResim()).into(resim);
+        Picasso.get().load("http://localhost/autogallery/"+list.get(position).getResim()).into(resim);
 
         return convertView;
     }

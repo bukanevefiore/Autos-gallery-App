@@ -87,7 +87,14 @@ public class IlanDetayActivity extends AppCompatActivity {
 
         circleIndicator=findViewById(R.id.sliderNokta);
 
-
+        // geri gelme
+        ilanDetayBaslik.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(IlanDetayActivity.this,IlanlarActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

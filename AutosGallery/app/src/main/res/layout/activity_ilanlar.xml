@@ -15,10 +15,13 @@
             android:layout_width="match_parent"
             android:layout_marginTop="-5dp"
             android:layout_height="50dp"
+            android:drawableLeft="@drawable/abc_vector_test"
             android:text="TÜM İLANLAR"
             android:textSize="20dp"
+            android:id="@+id/geri"
             android:gravity="center"
-            android:background="@drawable/pressed"></TextView>
+            android:background="@drawable/pressed">
+        </TextView>
     </LinearLayout>
 
     <ListView

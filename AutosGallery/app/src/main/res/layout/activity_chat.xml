@@ -6,9 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".Activity.ChatActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/tool"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="-5dp"
+            android:layout_height="50dp"
+            android:drawableLeft="@drawable/abc_vector_test"
+            android:textSize="20dp"
+            android:id="@+id/geri"
+            android:gravity="center"
+            android:background="@drawable/pressed">
+        </TextView>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/mesajListView"
+       android:layout_below="@+id/tool"
         android:layout_above="@+id/mesajLayout"
         android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 

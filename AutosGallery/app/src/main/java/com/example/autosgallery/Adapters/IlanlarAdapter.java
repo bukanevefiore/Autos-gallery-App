@@ -55,7 +55,7 @@ public class IlanlarAdapter extends BaseAdapter {
         adres.setText(ilanlarPojos.get(position).getIl()+" "+ilanlarPojos.get(position).getIlce()+""+ilanlarPojos.get(position).getMahalle());
 
         // picasso kütp. ile resmimizi alıyoruz
-        Picasso.get().load("http://192.168.1.4/autogallery/"+ilanlarPojos.get(position).getResim()).resize(100,100).into(resim);
+        Picasso.get().load("http://localhost/autogallery/"+ilanlarPojos.get(position).getResim()).resize(100,100).into(resim);
 
         return convertView;
     }

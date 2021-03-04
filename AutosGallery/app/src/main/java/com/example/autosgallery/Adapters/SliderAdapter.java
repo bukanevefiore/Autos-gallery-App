@@ -43,7 +43,7 @@ public class SliderAdapter extends PagerAdapter {
         layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view=layoutInflater.inflate(R.layout.sliderlayout,container,false);
         ImageView imageView=view.findViewById(R.id.sliderImageView);
-        Picasso.get().load("http://192.168.1.4/autogallery/"+list.get(position).getResim()).into(imageView);
+        Picasso.get().load("http://localhost/autogallery/"+list.get(position).getResim()).into(imageView);
         container.addView(view);
         return view;
     }

@@ -5,14 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="#121111"
     android:orientation="vertical"
     tools:openDrawer="start">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbarr"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="-10dp"
+        android:background="@drawable/pressed2"
+        android:layout_height="40dp">
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="375dp"
+            android:id="@+id/app_cikis"
+            android:background="@drawable/ic_baseline_settings_power_24">
+
+        </Button>
+    </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="320dp"
         android:layout_height="220dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/mainActivitySlider"
         android:background="@drawable/ic_menu_gallery"
         android:orientation="horizontal">
@@ -39,76 +58,95 @@
     <LinearLayout
         android:layout_below="@id/mainActivitySlider"
         android:id="@+id/menu"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <Button
-            android:layout_width="270dp"
-            android:layout_height="40dp"
-            android:drawableLeft="@drawable/ic_menu_manage"
-            android:background="@drawable/buton_back"
-            android:layout_gravity="center"
-            android:text="İLANLAR"
-            android:textSize="15dp"
-            android:textColor="#000"
             android:id="@+id/ilanlarButon"
-            android:layout_marginTop="30dp"></Button>
-        <Button
             android:layout_width="270dp"
             android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buton_back"
             android:drawableLeft="@drawable/ic_menu_manage"
-            android:background="@drawable/buton_back"
-            android:layout_gravity="center"
-            android:text="İLAN VER"
+            android:text="İLANLAR"
+            android:textColor="#6C6464"
+            android:textSize="15dp"
+            app:backgroundTint="@android:color/transparent"
+            app:iconTint="#A89797"></Button>
+
+        <Button
             android:id="@+id/ilanVerButon"
-            android:textSize="15dp"
-            android:textColor="#000"
-            android:layout_marginTop="25dp"></Button>
-        <Button
             android:layout_width="270dp"
             android:layout_height="40dp"
-            android:drawableLeft="@android:drawable/ic_menu_call"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
             android:background="@drawable/buton_back"
-            android:text="İLETİŞİM BİLGİLERİ"
+            android:drawableLeft="@drawable/ic_menu_manage"
+            android:text="İLAN VER"
+            android:textColor="#6C6464"
             android:textSize="15dp"
+            app:backgroundTint="@android:color/transparent"></Button>
+
+        <Button
             android:id="@+id/iletisimBilgileri"
-            android:textColor="#000"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"></Button>
+            android:layout_marginTop="25dp"
+            android:background="@drawable/buton_back"
+            android:drawableLeft="@android:drawable/ic_menu_call"
+            android:text="İLETİŞİM BİLGİLERİ"
+            android:textColor="#6C6464"
+            android:textSize="15dp"
+            app:backgroundTint="@android:color/transparent"></Button>
+
         <Button
             android:layout_width="270dp"
             android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/buton_back"
             android:drawableLeft="?attr/actionModePasteDrawable"
-            android:background="@drawable/buton_back"
             android:text="FAVORİ İLANLAR"
+            android:visibility="gone"
+            android:textColor="#6C6464"
             android:textSize="15dp"
-            android:textColor="#000"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"></Button>
+            app:backgroundTint="@android:color/transparent"></Button>
+
+
+
         <Button
-            android:layout_width="270dp"
-            android:layout_height="40dp"
-            android:drawableLeft="@android:drawable/ic_dialog_email"
-            android:background="@drawable/buton_back"
-            android:text="MESAJLARIM"
-            android:id="@+id/kisiMesajları"
-            android:textSize="15dp"
-            android:textColor="#000"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"></Button>
-        <Button
-            android:layout_width="270dp"
-            android:layout_height="40dp"
-            android:drawableLeft="@drawable/ic_menu_send"
-            android:background="@drawable/buton_back"
-            android:text="İLANLARIM"
             android:id="@+id/ilanlarimMenuButon"
-            android:textSize="15dp"
-            android:textColor="#000"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"></Button>
+            android:layout_marginTop="25dp"
+            android:background="@drawable/buton_back"
+            android:drawableLeft="@drawable/ic_menu_send"
+            android:text="İLANLARIM"
+            android:textColor="#6C6464"
+            android:textSize="15dp"
+            app:backgroundTint="@android:color/transparent"></Button>
+
+        <Button
+            android:id="@+id/kisiMesajları"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/buton_back"
+            android:drawableLeft="@android:drawable/ic_dialog_email"
+            android:text="MESAJLARIM"
+            android:textColor="#6C6464"
+            android:textSize="15dp"
+            app:backgroundTint="@android:color/transparent"></Button>
 
 
     </LinearLayout>
+
+
 
 </LinearLayout>

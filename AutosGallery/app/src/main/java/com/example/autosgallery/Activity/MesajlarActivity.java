@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.autosgallery.Adapters.MesajlarAdapter;
 import com.example.autosgallery.Dialog.OtherId;
@@ -32,6 +33,7 @@ public class MesajlarActivity extends AppCompatActivity {
     DatabaseReference reference;
     MesajlarAdapter mesajlarAdapter;
     ListView mesajlarListView;
+    TextView geri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,15 @@ public class MesajlarActivity extends AppCompatActivity {
         mesajlarAdapter=new MesajlarAdapter(otherIdList,userId,getApplicationContext(),MesajlarActivity.this);
         mesajlarListView=findViewById(R.id.mesajlarListView);
         mesajlarListView.setAdapter(mesajlarAdapter);
+
+        geri=findViewById(R.id.geri);
+        geri.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MesajlarActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     public void listele(){
         reference.child("messages").child(userId).addChildEventListener(new ChildEventListener() {

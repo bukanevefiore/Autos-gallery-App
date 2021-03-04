@@ -81,7 +81,7 @@ public class DogrulamaActivity extends AppCompatActivity {
                     editor.commit();
 
 
-                    Intent intent=new Intent(DogrulamaActivity.this, MainActivity.class);
+                    Intent intent=new Intent(DogrulamaActivity.this, LoginActivity.class);
                     startActivity(intent);
 
 

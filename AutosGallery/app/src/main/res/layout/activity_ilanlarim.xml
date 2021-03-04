@@ -16,6 +16,8 @@
             android:layout_marginTop="-5dp"
             android:layout_height="50dp"
             android:text="İLANLARIM"
+            android:id="@+id/geri"
+            android:drawableLeft="@drawable/abc_vector_test"
             android:textSize="20dp"
            android:gravity="center"
             android:background="@drawable/pressed"></TextView>

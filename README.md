@@ -1,5 +1,4 @@
 Application preview
-https://user-images.githubusercontent.com/59068120/109925523-edd3f700-7cd2-11eb-91a4-7397c6573bda.mp4
 # Autos-gallery-App
 ![1](https://user-images.githubusercontent.com/59068120/109925626-0a702f00-7cd3-11eb-98ee-239f56d9d5df.JPG)
 ![2](https://user-images.githubusercontent.com/59068120/109925630-0b08c580-7cd3-11eb-979a-fd15876cfca4.JPG)

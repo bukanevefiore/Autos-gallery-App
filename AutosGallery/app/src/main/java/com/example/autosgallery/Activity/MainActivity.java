@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         // uygulamadan çıkış işlemi
         app_cikis=findViewById(R.id.app_cikis);
+        //SharedPreferences.Editor editor;
         app_cikis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
